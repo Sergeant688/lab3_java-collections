@@ -11,17 +11,17 @@ public class Collection
 		this.list = list;
 	}
 	
-    public long testAdd(int iterations)
+    public Result testAdd(int iterations)
     {
         long startTime = System.nanoTime();
         for (int i = 0; i < iterations; i++)
         	list.add(i);
         
         long endTime = System.nanoTime();
-        return endTime - startTime;
+        return new Result(list.getClass().getSimpleName(), "add", iterations, endTime - startTime);
     }
 
-    public long testGet(int iterations)
+    public Result testGet(int iterations)
     {
         if (list.isEmpty())	throw new IllegalStateException("Список пуст! Сначала заполните его.");
         
@@ -32,10 +32,10 @@ public class Collection
             list.get(middleIndex);
         
         long endTime = System.nanoTime();
-        return endTime - startTime;
+        return new Result(list.getClass().getSimpleName(), "get", iterations, endTime - startTime);
     }
 
-    public long testRemove(int iterations)
+    public Result testRemove(int iterations)
     {
         if (list.size() < iterations) throw new IllegalArgumentException("В списке недостаточно элементов для удаления!");
         
@@ -44,6 +44,6 @@ public class Collection
             list.remove(0);
         
         long endTime = System.nanoTime();
-        return endTime - startTime;
+        return new Result(list.getClass().getSimpleName(), "remove", iterations, endTime - startTime);
     }
 }

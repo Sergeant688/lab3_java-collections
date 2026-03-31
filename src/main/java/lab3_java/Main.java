@@ -4,34 +4,50 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Main {
-
+public class Main 
+{
     static int add_iter = 10000;
     static int get_iter = 10000;
     static int rm_iter = 10000;
-
+    
     public static void main(String[] args) 
     {
+        List<Result> results = new ArrayList<>();
 
         List<Integer> arrayList = new ArrayList<>();
-        Collection List = new Collection(arrayList);
-        long timeTestAdd = List.testAdd(add_iter);
-        long timeTestGet = List.testGet(get_iter);
-        long timeTestRemove = List.testRemove(rm_iter);
+        Collection arrayListTest = new Collection(arrayList); 
+        results.add(arrayListTest.testAdd(add_iter));
+        results.add(arrayListTest.testGet(get_iter));
+        results.add(arrayListTest.testRemove(rm_iter));
         
-        System.out.println(timeTestAdd);
-        System.out.println(timeTestGet);
-        System.out.println(timeTestRemove);
-
         List<Integer> linkedList = new LinkedList<>();
         Collection linkList = new Collection(linkedList);
-        timeTestAdd = linkList.testAdd(add_iter);
-        timeTestGet = linkList.testGet(get_iter);
-        timeTestRemove = linkList.testRemove(rm_iter);
+        results.add(linkList.testAdd(add_iter));
+        results.add(linkList.testGet(get_iter));
+        results.add(linkList.testRemove(rm_iter));
         
-        System.out.println(timeTestAdd);
-        System.out.println(timeTestGet);
-        System.out.println(timeTestRemove);
+        printTable(results);
+    }
+    
+    private static void printTable(List<Result> results) 
+    {
+        String format = "| %-12s | %-16s | %-12d | %-15.3f | %-15d |%n";
+        
+        System.out.println("Сравнение производительности коллекций:");
+        System.out.println();
 
+        System.out.printf("| %-12s | %-16s | %-12s | %-15s | %-15s |%n", 
+                "Коллекция", "Метод", "Кол-во раз", "Время (мс)", "Время (нс)");
+
+        for (Result res : results) 
+        {
+            System.out.printf(format, 
+                    res.getCollectionType(),
+                    res.getMethod(),
+                    res.getIterations(),
+                    res.getTimeInMillis(),
+                    res.getTimeInNanos());
+        }
+        System.out.println();
     }
 }
