@@ -1,5 +1,9 @@
 package lab3_java;
 
+/**
+ * Класс для хранения результатов тестирования производительности.
+ * Содержит информацию о типе коллекции, тестируемом методе, количестве итераций и времени выполнения.
+ */
 public class Result 
 {
     private String collectionType;
@@ -14,7 +18,12 @@ public class Result
         this.iterations = iterations;
         this.timeIn = timeIn;
     }
-
+    
+    /**
+     * Возвращает время выполнения в миллисекундах для удобства чтения.
+     *
+     * @return время в миллисекундах
+     */
     public double getTimeInMillis() 
     {
         return timeIn / 1000000.0;

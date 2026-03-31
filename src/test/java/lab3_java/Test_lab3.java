@@ -8,6 +8,9 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Unit-тесты для проверки работы программы.
+ */
 class Test_lab3 
 {
 

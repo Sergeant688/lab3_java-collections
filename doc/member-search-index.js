@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"lab3_java","c":"Collection","l":"Collection(List<Integer>)","u":"%3Cinit%3E(java.util.List)"},{"p":"lab3_java","c":"Collection","l":"testAdd(int)"},{"p":"lab3_java","c":"Collection","l":"testGet(int)"},{"p":"lab3_java","c":"Collection","l":"testRemove(int)"}];updateSearchResults();

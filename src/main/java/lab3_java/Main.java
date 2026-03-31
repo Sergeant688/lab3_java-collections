@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * Главный класс приложения.
+ * Запускает тесты производительности для ArrayList и LinkedList и выводит результаты в виде таблицы.
+ */
 public class Main 
 {
     static int add_iter = 10000;
@@ -29,6 +33,11 @@ public class Main
         printTable(results);
     }
     
+    /**
+     * Выводит результаты тестирования в виде отформатированной таблицы в консоль.
+     *
+     * @param results список результатов
+     */
     private static void printTable(List<Result> results) 
     {
         String format = "| %-12s | %-16s | %-12d | %-15.3f | %-15d |%n";
